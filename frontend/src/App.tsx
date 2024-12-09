@@ -1,27 +1,18 @@
-import { useState, useEffect } from 'react';
-import api from './services/api';
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Cadastro from "./pages/Cadastro";
+import Login from "./pages/Login";
+
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    const fetchMessage = async () => {
-      try {
-        const response = await api.get('/');
-        setMessage(response.data as string); // ou response.data.message se o backend enviar um objeto com a mensagem
-      } catch (error) {
-        console.error("Erro ao buscar mensagem:", error);
-        setMessage("Erro ao conectar com o servidor.");
-      }
-    };
-
-    fetchMessage();
-  }, []); // Certifique-se de que o array de dependências esteja vazio para executar o useEffect apenas uma vez
-
   return (
-    <div className="App">
-      <h1>{message}</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/cadastro" />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 

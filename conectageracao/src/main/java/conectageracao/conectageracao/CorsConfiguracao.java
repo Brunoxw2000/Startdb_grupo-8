@@ -2,6 +2,7 @@ package conectageracao.conectageracao;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -12,11 +13,9 @@ public class CorsConfiguracao {
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
-            public void addCorsMappings(CorsRegistry registry) {
+            public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping("/**") // Mapeia todos os endpoints
-                        //.allowedOrigins("http://localhost:5173/") // URL do seu frontend React (porta
-                        // 5173 é a padrão do
-                        // Vite)
+                        .allowedOrigins("*")
                         .allowedMethods("GET", "POST", "PUT", "DELETE"); // Métodos permitidos
             }
         };
