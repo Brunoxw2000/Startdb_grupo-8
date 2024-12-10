@@ -12,11 +12,44 @@ const Cadastro: React.FC = () => {
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+
+    const [nomeError, setNomeError] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [senhaError, setSenhaError] = useState("");
+
     const [tipoUsuario, setTipoUsuario] = useState("");
     const [localizacao, setLocalizacao] = useState("");
 
+
+
     const handleCadastro = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        setNomeError("");
+        setEmailError("");
+        setSenhaError("");
+
+        if (!nome) {
+            setNomeError("O campo nome é obrigatório");
+            return;
+        }
+
+        if (!email) {
+            setEmailError("O campo email é obrigatório");
+            return;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            setEmailError("Digite um email válido.");
+        }
+
+        if (!senha) {
+            setSenhaError("O campo senha é obrigatório");
+            return;
+        }
+        //Se houver algum erro de validação, interrompe o cadastro
+        if (nomeError || emailError || senhaError) {
+            return;
+        }
+
 
         try {
             const novoUsuario = {
@@ -30,7 +63,7 @@ const Cadastro: React.FC = () => {
             await api.post("/usuarios", novoUsuario);
             navigate("/login");
         } catch (error) {
-            console.error(error);
+            console.error(error); 
         }
     };
     return (
@@ -44,6 +77,7 @@ const Cadastro: React.FC = () => {
                     onChange={event => setNome
                         (event.target.value)}
                 />
+                {nomeError && <p style={{ color: 'red' }}>{nomeError}</p>} {/* Exibe a mensagem de erro do Nome se existir */}
                 <input
                     type="email"
                     placeholder="E-mail"
@@ -51,6 +85,7 @@ const Cadastro: React.FC = () => {
                     onChange={event => setEmail
                         (event.target.value)}
                 />
+                {emailError && <p style={{ color: 'red' }}>{emailError}</p>} {/* Exibe a mensagem de erro do email se existir */}
                 <SelecionarTipoUser
                     value={tipoUsuario}
                     onChange={event => setTipoUsuario(event.target.value)}
@@ -65,6 +100,7 @@ const Cadastro: React.FC = () => {
                     value={senha}
                     onChange={event => setSenha(event.target.value)}
                 />
+                {senhaError && <p style={{ color: 'red' }}>{senhaError}</p>} {/* Exibe a mensagem de erro da senha se existir */}
                 <Button type="submit" onClick={() => { }}>Cadastrar</Button>
             </form>
             <p>Já possui cadastro? <a href="/login">Faça login</a></p>
