@@ -1,11 +1,29 @@
 package conectageracao.conectageracao;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+
+@Entity
+@Table(name="usuarios")
 public class Pessoa {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int    id;
+    @Column(nullable = false)
     private String nome;
+    @Column( length = 30,nullable = false)
     private String email;
-    private String senha; 
+    @Column(length = 30, nullable = false)
+    private String senha;
+    @Column(length = 50, nullable = false) 
     private String endereco;
+    @Column(nullable = false)
     private String papel;
     
     public Pessoa (String nome ,String email,String senha,String endereco,String papel){
