@@ -1,25 +1,25 @@
 package conectageracao.conectageracao;
 
-public class Login {
+public class Log {
 
-    private String nome;
+    private String email;
     private String senha;
     
-    public Login(String nome,String senha){
-        this.nome=nome;
+    public Log(String email,String senha){
+        this.email=email;
         this.senha=senha;
     }
 
-    public String getNome() {
-        return nome;
+    public String getemail() {
+        return email;
     }
 
     public String getSenha() {
         return senha;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String email) {
+        this.email = email;
     }
 
     public void setSenha(String senha) {
