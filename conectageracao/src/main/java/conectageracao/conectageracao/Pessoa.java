@@ -26,6 +26,8 @@ public class Pessoa {
     @Column(nullable = false)
     private String papel;
     
+    protected Pessoa(){ }
+
     public Pessoa (String nome ,String email,String senha,String endereco,String papel){
         this.nome = nome;
         this.email = email;
