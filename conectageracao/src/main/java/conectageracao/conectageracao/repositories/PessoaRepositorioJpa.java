@@ -1,9 +1,11 @@
-package conectageracao.conectageracao;
+package conectageracao.conectageracao.repositories;
 
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import conectageracao.conectageracao.entities.Login;
+import conectageracao.conectageracao.entities.Pessoa;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -47,15 +49,9 @@ public class PessoaRepositorioJpa implements Pessoasrepositorio {
     }
  
     @Override
-    public String autenticar(Log log){
+    public String autenticar(Login log){
         String Token = "vazio";
-            
-                
-
         return Token;
     }
-
-
-
 }
 

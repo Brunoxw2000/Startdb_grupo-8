@@ -1,7 +1,9 @@
-package conectageracao.conectageracao;
+package conectageracao.conectageracao.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import conectageracao.conectageracao.entities.Atividade;
 
 // Interface para operações de acesso a dados relacionadas à entidade Atividade
 @Repository

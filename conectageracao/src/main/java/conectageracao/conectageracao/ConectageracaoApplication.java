@@ -9,6 +9,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import conectageracao.conectageracao.entities.Login;
+import conectageracao.conectageracao.entities.Pessoa;
+import conectageracao.conectageracao.repositories.Pessoasrepositorio;
+
 
 @SpringBootApplication
 public class ConectageracaoApplication {
@@ -29,8 +33,8 @@ public class ConectageracaoApplication {
 			log.info(p1.toString());
 			var p2 = repositorio.inserir(new Pessoa("mary knows", "mkno@email.com","1234","pelotas","idoso"));
 			log.info(p2.getNome());
-			var p9 = new Log("email@hot.com","1234");
-			log.info(p9.getemail());
+			var p9 = new Login("email@hot.com","1234");
+			log.info(p9.getEmail());
 			log.info("Alterando pessoa...");
 			var p3 = repositorio.buscarPorId(2);
 			p3.setEndereco("porto alegre");

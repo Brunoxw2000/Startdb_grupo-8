@@ -1,7 +1,10 @@
 
-package conectageracao.conectageracao;
+package conectageracao.conectageracao.repositories;
 
 import java.util.List;
+
+import conectageracao.conectageracao.entities.Login;
+import conectageracao.conectageracao.entities.Pessoa;
 
 public interface Pessoasrepositorio {
     //quer buscar os dados do banco inteiro pq so temos 2 objetos
@@ -22,5 +25,5 @@ public interface Pessoasrepositorio {
     //alterar o objeto
     void alterar(Pessoa umPessoa);
 
-    String autenticar(Log log);
+    String autenticar(Login log);
 }

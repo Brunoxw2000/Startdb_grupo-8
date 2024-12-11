@@ -1,38 +1,37 @@
-package conectageracao.conectageracao;
+package conectageracao.conectageracao.services;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Service;
 
-@RestController
-@RequestMapping("/atividades")
-class AtividadeController {
+import conectageracao.conectageracao.entities.Atividade;
+import conectageracao.conectageracao.repositories.AtividadeRepositorio;
 
+//Regras de negócio, testar 
+
+@Service
+public class AtividadeService {
     @Autowired
     private AtividadeRepositorio atividadeRepositorio;
 
-    @GetMapping
     public List<Atividade> listarTodas() {
         // Retorna todas as atividades
         return atividadeRepositorio.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Atividade buscarPorId(@PathVariable Integer id) {
+    public Atividade buscarPorId(Integer id) {
         // Busca uma atividade pelo ID, retornando null se não for encontrada
         return atividadeRepositorio.findById(id).orElse(null);
     }
 
-    @PostMapping
-    public Atividade criar(@RequestBody Atividade atividade) {
+    public Atividade criar(Atividade atividade) {
         // Cria ou atualiza uma atividade
         return atividadeRepositorio.save(atividade);
     }
 
-    @DeleteMapping("/{id}")
-    public String remover(@PathVariable Integer id) {
+    public String remover(Integer id) {
         // Verifica se a atividade existe antes de remover
         Optional<Atividade> atividade = atividadeRepositorio.findById(id);
         if (atividade.isPresent()) {
@@ -43,8 +42,7 @@ class AtividadeController {
         }
     }
 
-    @PutMapping
-    public Atividade atualizar(@RequestBody Atividade atividade) {
+    public Atividade atualizar(Atividade atividade) {
         // Atualiza uma atividade existente (ou cria uma nova se o ID não existir)
         return atividadeRepositorio.save(atividade);
     }

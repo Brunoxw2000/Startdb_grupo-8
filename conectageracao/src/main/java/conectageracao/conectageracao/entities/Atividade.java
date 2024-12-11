@@ -1,4 +1,4 @@
-package conectageracao.conectageracao;
+package conectageracao.conectageracao.entities;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -37,7 +37,7 @@ public class Atividade {
     private String localizacao;
 
     @Column(nullable = false)
-    private boolean modo;
+    private String modo;
 
     private LocalDate data;
 
@@ -45,10 +45,10 @@ public class Atividade {
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
 
-    public Atividade() {
+    protected Atividade() {
     }
 
-    public Atividade(String nome, String descricao, Set<String> tags, String localizacao, boolean modo, LocalDate data,
+    public Atividade(String nome, String descricao, Set<String> tags, String localizacao, String modo, LocalDate data,
             Pessoa pessoa) {
         this.nome = nome;
         this.descricao = descricao;
@@ -83,7 +83,7 @@ public class Atividade {
         return localizacao;
     }
 
-    public boolean isModo() {
+    public String getModo() {
         return modo;
     }
 
@@ -111,7 +111,7 @@ public class Atividade {
         this.localizacao = localizacao;
     }
 
-    public void setModo(boolean modo) {
+    public void setModo(String modo) {
         this.modo = modo;
     }
 
@@ -128,7 +128,6 @@ public class Atividade {
     }
 
     public Atividade orElse(Object object) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'orElse'");
     }
 }
