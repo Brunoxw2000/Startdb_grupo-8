@@ -28,8 +28,9 @@ public class ConectageracaoApplication {
 			var p1 = repositorio.inserir(new Pessoa("John Doe", "jon@email.com","senha","porto-alegre","voluntario"));
 			log.info(p1.toString());
 			var p2 = repositorio.inserir(new Pessoa("mary knows", "mkno@email.com","1234","pelotas","idoso"));
-			log.info(p2.toString());
-			
+			log.info(p2.getNome());
+			var p9 = new Log("email@hot.com","1234");
+			log.info(p9.getemail());
 			log.info("Alterando pessoa...");
 			var p3 = repositorio.buscarPorId(2);
 			p3.setEndereco("porto alegre");

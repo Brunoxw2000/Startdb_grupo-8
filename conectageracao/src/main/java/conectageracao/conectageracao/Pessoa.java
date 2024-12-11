@@ -24,11 +24,18 @@ public class Pessoa {
     private String endereco;
     @Column(nullable = false)
     private String papel;
+<<<<<<< HEAD
 
     public Pessoa() {
     }
 
     public Pessoa(String nome, String email, String senha, String endereco, String papel) {
+=======
+    
+    protected Pessoa(){ }
+
+    public Pessoa (String nome ,String email,String senha,String endereco,String papel){
+>>>>>>> 8afbd3f2f7b3ecadd0fc9e3fab0a6c4d5faf6448
         this.nome = nome;
         this.email = email;
         this.senha = senha;
