@@ -75,7 +75,7 @@ const Login: React.FC = () => {
                 {senhaError && <p style={{ color: "red" }}>{senhaError}</p>} {/* Exibe a mensagem de erro da senha */}
                 <button type="submit">Entrar</button>
             </form>
-            <p>Não possui cadastro? <a href="/Cadastro">Cadastre-se</a></p>
+            <p>Não possui cadastro? <a href="/cadastro">Cadastre-se</a></p>
         </div>
     );
 };
