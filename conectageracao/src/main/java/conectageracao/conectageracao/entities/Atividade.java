@@ -1,12 +1,15 @@
 package conectageracao.conectageracao.entities;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,17 +23,17 @@ public class Atividade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false, length = 1000)
+    @Column(length = 1000) // Limita o tamanho da descrição no banco de dados.
     private String descricao;
 
     @ElementCollection
     @CollectionTable(name = "atividades_tags", joinColumns = @jakarta.persistence.JoinColumn(name = "atividade_id"))
-    @Column(name = "tags")
+    @Column(name = "tag")
     private Set<String> tags;
 
     @Column(nullable = false)
@@ -42,24 +45,45 @@ public class Atividade {
     private LocalDate data;
 
     @ManyToOne
-    @JoinColumn(name = "pessoa_id")
-    private Pessoa pessoa;
+    @JoinColumn(name = "idoso_id")
+    private Pessoa idoso; // idoso que criou a atividade
 
-    protected Atividade() {
+    @ManyToOne
+    @JoinColumn(name = "voluntario_id")
+    private Pessoa voluntario; // voluntario que se inscreveu na atividade
+
+    @Enumerated(EnumType.STRING) // Armazena o status como string no banco
+    @Column(nullable = false)
+    private StatusAtividade status = StatusAtividade.PENDENTE; // status inicial da atividade
+
+    // enum para representar o status da atividade
+    public enum StatusAtividade {
+        PENDENTE, EM_ANDAMENTO, CONCLUIDA
+    }
+
+    // construtores
+
+    public Atividade() {
     }
 
     public Atividade(String nome, String descricao, Set<String> tags, String localizacao, String modo, LocalDate data,
-            Pessoa pessoa) {
+            Pessoa idoso, StatusAtividade status, StatusAtividade pendente) {
         this.nome = nome;
         this.descricao = descricao;
         this.tags = tags;
         this.localizacao = localizacao;
         this.modo = modo;
         this.data = data;
-        this.pessoa = pessoa;
+        this.idoso = idoso;
+        this.status = StatusAtividade.PENDENTE;
+        this.voluntario = null;
     }
 
-    public int getId() {
+    public StatusAtividade getStatus() {
+        return status;
+    }
+
+    public Long getId() {
         return id;
     }
 
@@ -91,8 +115,12 @@ public class Atividade {
         return data;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public Pessoa getIdoso() {
+        return idoso;
+    }
+
+    public Pessoa getVoluntario() {
+        return voluntario;
     }
 
     public void setNome(String nome) {
@@ -119,15 +147,39 @@ public class Atividade {
         this.data = data;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setIdoso(Pessoa idoso) {
+        this.idoso = idoso;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(long id) {
+        this.id = (long) id;
     }
 
-    public Atividade orElse(Object object) {
-        throw new UnsupportedOperationException("Unimplemented method 'orElse'");
+    public void setVoluntario(Pessoa voluntario) {
+        this.voluntario = voluntario;
+    }
+
+    public void setStatus(StatusAtividade status) {
+        this.status = status;
+    }
+
+    // equals e hashcode
+    // essas sobreposições garantem que a comparação de igualdade e o cálculo do
+    // hash code sejam baseados no ID da entidade, o que é crucial para o
+    // funcionamento correto com JPA e coleções.
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Atividade atividade = (Atividade) o;
+        return Objects.equals(id, atividade.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 
 import conectageracao.conectageracao.entities.Login;
 import conectageracao.conectageracao.entities.Pessoa;
-import conectageracao.conectageracao.repositories.Pessoasrepositorio;
+import conectageracao.conectageracao.repositories.PessoaRepositorio;
 
 
 @SpringBootApplication
@@ -26,12 +26,12 @@ public class ConectageracaoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(Pessoasrepositorio repositorio) {
+	public CommandLineRunner demo(PessoaRepositorio repositorio) {
 		return (args) -> {
 			log.info("Inserindo pessoas...");
-			var p1 = repositorio.inserir(new Pessoa("John Doe", "jon@email.com","senha","porto-alegre","voluntario"));
+			var p1 = repositorio.inserir(new Pessoa(null, "John Doe", "jon@email.com","senha","porto-alegre","voluntario"));
 			log.info(p1.toString());
-			var p2 = repositorio.inserir(new Pessoa("mary knows", "mkno@email.com","1234","pelotas","idoso"));
+			var p2 = repositorio.inserir(new Pessoa(null, "mary knows", "mkno@email.com","1234","pelotas","idoso"));
 			log.info(p2.getNome());
 			var p9 = new Login("email@hot.com","1234");
 			log.info(p9.getEmail());
