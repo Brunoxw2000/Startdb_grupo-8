@@ -17,7 +17,7 @@ public class Pessoa {
     private int    id;
     @Column(nullable = false)
     private String nome;
-    @Column( length = 30,nullable = false)
+    @Column(name="EMAIL", length = 30,nullable = false)
     private String email;
     @Column(length = 30, nullable = false)
     private String senha;

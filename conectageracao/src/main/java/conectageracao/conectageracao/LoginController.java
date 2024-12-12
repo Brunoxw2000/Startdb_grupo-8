@@ -2,7 +2,6 @@ package conectageracao.conectageracao;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -19,7 +18,7 @@ public class LoginController {
 
 final Pessoasrepositorio repositorio;
 
-@Autowired
+
 public LoginController(Pessoasrepositorio repositorio) {
         this.repositorio = repositorio;
 
@@ -32,9 +31,11 @@ public String postMethodName(@RequestBody Log log) {
 
     String Token = "vazio";
     
+    if(repositorio.findByEmail( log.getemail())){
+        Token = "achei";
+    }
 
-
-    Token = repositorio.autenticar(log);
+    
         
 
     

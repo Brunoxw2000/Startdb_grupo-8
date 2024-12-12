@@ -1,4 +1,4 @@
-package conectageracao.conectageracao;
+/*package conectageracao.conectageracao;
 
 import java.util.List;
 
@@ -58,4 +58,4 @@ public class PessoaRepositorioJpa implements Pessoasrepositorio {
 
 
 }
-
+*/

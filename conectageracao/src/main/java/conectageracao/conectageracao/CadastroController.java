@@ -1,6 +1,6 @@
 package conectageracao.conectageracao;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ public class CadastroController {
 
 final Pessoasrepositorio repositorio;
 
-@Autowired
+
 public CadastroController(Pessoasrepositorio repositorio) {
         this.repositorio = repositorio;
 
@@ -26,7 +26,7 @@ public CadastroController(Pessoasrepositorio repositorio) {
 public void postMethodName(@RequestBody Pessoa pessoa) {
     
     
-    repositorio.inserir(new Pessoa(pessoa.getNome(),pessoa.getEmail(),pessoa.getSenha(),pessoa.getEndereco(),pessoa.getPapel())); 
+    repositorio.save(new Pessoa(pessoa.getNome(),pessoa.getEmail(),pessoa.getSenha(),pessoa.getEndereco(),pessoa.getPapel())); 
         
 
     
