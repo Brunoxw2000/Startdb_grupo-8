@@ -120,6 +120,6 @@ public class AtividadeService {
     }
 
     public List<Atividade> getHistoricoIdoso(Long idosoId) {
-        return atividadeRepositorio.findByPessoaId(idosoId);
+        return atividadeRepositorio.findByIdosoId(idosoId);
     }
 }

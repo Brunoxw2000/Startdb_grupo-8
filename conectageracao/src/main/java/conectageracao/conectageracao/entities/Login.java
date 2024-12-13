@@ -18,11 +18,12 @@ public class Login {
         return senha;
     }
 
-    public void setNome(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
 }

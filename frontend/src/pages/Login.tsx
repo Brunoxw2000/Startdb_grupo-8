@@ -47,8 +47,8 @@ const Login: React.FC = () => {
             //Armazena o token retornado pela API no localStorage
             localStorage.setItem("token", response.data.token);
 
-            //Redireciona o usuário para a rota /dashboard
-            navigate("/dashboard");
+            //Redireciona o usuário para a rota /busca
+            navigate("/busca");
         } catch (error) {
             //tratamento de erros durante o login
             console.error("Erro ao fazer login:", error);

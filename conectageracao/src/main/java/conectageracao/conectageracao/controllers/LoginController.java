@@ -22,7 +22,7 @@ public class LoginController {
     @PostMapping("")
     public String postMethodName(@RequestBody Login log) {
         String token = "vazio";
-        token = repositorio.autenticar(log);
+        //token = repositorio.autenticar(log);
         return token;
     }
 }

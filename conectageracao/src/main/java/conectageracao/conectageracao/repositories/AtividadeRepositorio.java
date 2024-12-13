@@ -17,5 +17,5 @@ public interface AtividadeRepositorio extends JpaRepository<Atividade, Long> {
 
         List<Atividade> findByVoluntarioId(Long voluntarioId);
 
-        List<Atividade> findByPessoaId(Long idosoId);
+        List<Atividade> findByIdosoId(Long idosoId);
 }

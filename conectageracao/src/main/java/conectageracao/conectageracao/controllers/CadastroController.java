@@ -22,7 +22,7 @@ public class CadastroController {
     @PostMapping("/formulario")
     public void postMethodName(@RequestBody Pessoa pessoa) {
 
-        repositorio.inserir(new Pessoa(null, pessoa.getNome(), pessoa.getEmail(), pessoa.getSenha(), pessoa.getEndereco(),
+        repositorio.save(new Pessoa(null, pessoa.getNome(), pessoa.getEmail(), pessoa.getSenha(), pessoa.getEndereco(),
                 pessoa.getPapel()));
 
     }
