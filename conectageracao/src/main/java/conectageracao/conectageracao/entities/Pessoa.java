@@ -1,4 +1,6 @@
-package conectageracao.conectageracao;
+package conectageracao.conectageracao.entities;
+
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,33 +9,42 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
 @Entity
-@Table(name="usuarios")
+@Table(name = "usuarios")
 public class Pessoa {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int    id;
+    private Long id;
     @Column(nullable = false)
     private String nome;
+<<<<<<< HEAD:conectageracao/src/main/java/conectageracao/conectageracao/Pessoa.java
     @Column(name="EMAIL", length = 30,nullable = false)
+=======
+    @Column(length = 30, nullable = false, unique = true)
+>>>>>>> gabriela:conectageracao/src/main/java/conectageracao/conectageracao/entities/Pessoa.java
     private String email;
     @Column(length = 30, nullable = false)
     private String senha;
-    @Column(length = 50, nullable = false) 
+    @Column(length = 50, nullable = false)
     private String endereco;
     @Column(nullable = false)
     private String papel;
-    
-    protected Pessoa(){ }
 
-    public Pessoa (String nome ,String email,String senha,String endereco,String papel){
+    public Pessoa() {
+    }
+
+    public Pessoa(Long id, String nome, String email, String senha, String endereco, String papel) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.endereco = endereco;
         this.papel = papel;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getNome() {
@@ -76,4 +87,23 @@ public class Pessoa {
         this.papel = papel;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Pessoa pessoa = (Pessoa) o;
+        return Objects.equals(id, pessoa.id); // Comparação pelo ID
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id); // Hash code baseado no ID
+
+    }
 }
