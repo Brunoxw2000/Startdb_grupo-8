@@ -9,8 +9,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/CriarAtividade" />} />
-        <Route path="/CriarAtividade" element={<CriarAtividade />} />
+        <Route path="/" element={<Navigate to="/criar" />} />
+        <Route path="/criar" element={<CriarAtividade />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/user" element={<User />} />
