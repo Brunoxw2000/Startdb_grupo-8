@@ -1,8 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Cadastro from "./pages/Cadastro";
-import Login from "./pages/Login";
-import User from "./pages/User";
-import CriarAtividade from "./pages/CriarAtividade";
+import Cadastro from "./Pages/Cadastro";
+import Login from "./Pages/Login";
+import User from "./Pages/User";
+import CriarAtividade from "./Pages/CriarAtividade";
+import Atividades from "./Pages/Atividades";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/user" element={<User />} />
+        <Route path="/busca" element={<Atividades/>} />
       </Routes>
 
     </BrowserRouter>

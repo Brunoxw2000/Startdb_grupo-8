@@ -27,7 +27,7 @@ const CriarAtividade: React.FC = () => {
 
   const [idosoLogadoId, setIdosoLogadoId] = useState<number | null>(null);
 
-  useEffect(() => {
+  /*useEffect(() => {
     // Lógica para obter o ID do idoso logado (exemplo com localStorage)
     const storedIdosoId = localStorage.getItem('idosoId');
     if (storedIdosoId) {
@@ -41,7 +41,7 @@ const CriarAtividade: React.FC = () => {
       navigate('/login');
     }
 
-  }, [navigate]);
+  }, [navigate]); */
 //atualiza o estado da atividade
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
@@ -74,9 +74,9 @@ const CriarAtividade: React.FC = () => {
     }
   }; 
 
-  if (!idosoLogadoId) {
-    return <div>Carregando...</div>;
-  }
+ // if (!idosoLogadoId) {
+  //  return <div>Carregando...</div>;
+ // }
 
   return (
     <div>

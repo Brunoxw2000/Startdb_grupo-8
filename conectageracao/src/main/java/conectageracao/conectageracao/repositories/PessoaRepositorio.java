@@ -33,4 +33,6 @@ public interface PessoaRepositorio extends JpaRepository<Pessoa, Long> {
     // String autenticar(Login log);
 
     Optional<Pessoa> findById(Long id);
+
+    Optional<Pessoa> findBynome(String nome);
 }

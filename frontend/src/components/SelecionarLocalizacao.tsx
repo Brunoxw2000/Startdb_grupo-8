@@ -34,7 +34,8 @@ const SelecionarLocalizacao: React.FC<SelecionarLocalizacaoProps> = ({ onChange,
         { id: "24", nome: "São Luís - MA" },
         { id: "25", nome: "São Paulo - SP" },
         { id: "26", nome: "Teresina - PI" },
-        { id: "27", nome: "Vitória - ES" }
+        { id: "27", nome: "Vitória - ES" },
+        { id: "28", nome: "------------" }
     ];
     return (
         <select value={value} onChange={onChange}>

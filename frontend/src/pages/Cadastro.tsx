@@ -2,9 +2,9 @@ import React from "react";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import SelecionarTipoUser from "../components/SelecionarTipoUser";
-import SelecionarLocalizacao from "../components/SelecionarLocalizacao";
-import Button from "../components/Button";
+import SelecionarTipoUser from "../Components/SelecionarTipoUser";
+import SelecionarLocalizacao from "../Components/SelecionarLocalizacao";
+import Button from "../Components/Button";
 
 const Cadastro: React.FC = () => {
     const navigate = useNavigate();
