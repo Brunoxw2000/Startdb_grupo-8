@@ -18,11 +18,7 @@ public class Pessoa {
     private Long id;
     @Column(nullable = false)
     private String nome;
-<<<<<<< HEAD:conectageracao/src/main/java/conectageracao/conectageracao/Pessoa.java
-    @Column(name="EMAIL", length = 30,nullable = false)
-=======
     @Column(length = 30, nullable = false, unique = true)
->>>>>>> gabriela:conectageracao/src/main/java/conectageracao/conectageracao/entities/Pessoa.java
     private String email;
     @Column(length = 30, nullable = false)
     private String senha;
