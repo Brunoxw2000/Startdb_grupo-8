@@ -1,11 +1,11 @@
 
 
 import React, { useState } from 'react';
-import SelecionarLocalizacao from "../Components/SelecionarLocalizacao";
-import ListaDeAtividades from '../Components/ListaAtividades';
-import SelecionarTags from '../Components/SelecionarTags';
-import SelecionarTipoEncontro from '../Components/SelecionarTipoEncontro';
-import Button from "../Components/Button";
+import SelecionarLocalizacao from "../components/SelecionarLocalizacao";
+import ListaDeAtividades from '../components/ListaAtividades';
+import SelecionarTags from '../components/SelecionarTags';
+import SelecionarTipoEncontro from '../components/SelecionarTipoEncontro';
+import Button from "../components/Button";
 
     const Atividades: React.FC = () => {
 
@@ -21,23 +21,11 @@ import Button from "../Components/Button";
        
     const HandleAtividades = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
-        try {
-            const filtros = {
-                tag,
-                tipoEncontro,
-                localizacao,
-            };
-
-            
-        } catch (error) {
-            console.error(error); 
-        }
     }
     return (
         <div>
             <h1>Buscar Atividades</h1> 
-            <p><a href="/CriarAtividade">Criar atividade</a></p>
+            <p><a href="/criar">Criar atividade</a></p>
             <h2>Filtros</h2>
              
             

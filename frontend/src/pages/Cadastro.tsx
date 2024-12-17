@@ -2,9 +2,9 @@ import React from "react";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import SelecionarTipoUser from "../Components/SelecionarTipoUser";
-import SelecionarLocalizacao from "../Components/SelecionarLocalizacao";
-import Button from "../Components/Button";
+import SelecionarTipoUser from "../components/SelecionarTipoUser";
+import SelecionarLocalizacao from "../components/SelecionarLocalizacao";
+import Button from "../components/Button";
 
 const Cadastro: React.FC = () => {
     const navigate = useNavigate();
@@ -60,7 +60,7 @@ const Cadastro: React.FC = () => {
                 localizacao,
             };
 
-            await api.post("/usuarios", novoUsuario);
+            await api.post("/cadastro/formulario", novoUsuario);
             navigate("/login");
         } catch (error) {
             console.error(error); 
