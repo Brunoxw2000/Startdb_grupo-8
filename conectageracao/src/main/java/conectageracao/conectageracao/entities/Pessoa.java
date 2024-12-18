@@ -39,6 +39,17 @@ public class Pessoa {
         this.papel = papel;
     }
 
+
+
+    public Pessoa(PessoaRequestDTO pessoanova){
+        this.nome = pessoanova.nome();
+        this.email = pessoanova.email();
+        this.senha = pessoanova.senha();
+        this.papel = pessoanova.endereco();
+       
+    }
+
+
     public Long getId() {
         return id;
     }

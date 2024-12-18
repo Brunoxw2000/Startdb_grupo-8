@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import conectageracao.conectageracao.entities.Pessoa;
+import conectageracao.conectageracao.entities.PessoaRequestDTO;
 import conectageracao.conectageracao.repositories.PessoaRepositorio;
 
 @RestController
@@ -20,10 +21,10 @@ public class CadastroController {
     }
 
     @PostMapping("/formulario")
-    public void postMethodName(@RequestBody Pessoa pessoa) {
+    public void postMethodName(@RequestBody PessoaRequestDTO pessoaNova) {
 
-        repositorio.save(new Pessoa(null, pessoa.getNome(), pessoa.getEmail(), pessoa.getSenha(), pessoa.getEndereco(),
-                pessoa.getPapel()));
+        repositorio.save(new Pessoa(null, pessoaNova.nome(), pessoaNova.email(), pessoaNova.senha(), pessoaNova.endereco(),
+                pessoaNova.papel()));
 
     }
 

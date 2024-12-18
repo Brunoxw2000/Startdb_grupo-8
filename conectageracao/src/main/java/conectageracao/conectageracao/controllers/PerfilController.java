@@ -13,26 +13,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/perfil")
-
 public class PerfilController {
 
-final PessoaRepositorio repositorio;
+    final PessoaRepositorio repositorio;
 
-
-public PerfilController(PessoaRepositorio repositorio) {
+    public PerfilController(PessoaRepositorio repositorio) {
         this.repositorio = repositorio;
 
-}
-    
-@PostMapping("/dados")
-public Optional<Pessoa> postMethodName(@RequestBody String nome) {
-      
+    }
 
-    
-    return repositorio.findBynome(nome);
-}
+    @PostMapping("/dados")
+    public Optional<Pessoa> postMethodName(@RequestBody String nome) {
 
-
-
+        return repositorio.findBynome(nome);
+    }
 
 }
