@@ -83,8 +83,8 @@ const UserPage: React.FC = () => {
                   value={papel}
                   onChange={(e) => setPapel(e.target.value)}
                 >
-                  <option value="voluntario">Ajudar</option>
-                  <option value="idoso">Receber ajuda</option>
+                  <option value="Voluntário">Quero Ajudar</option>
+                  <option value="Idoso">Quero Receber ajuda</option>
                 </select>
               </label>
               <Button type="button" onClick={handleEdit}>
@@ -96,9 +96,6 @@ const UserPage: React.FC = () => {
             </div>
           ) : (
             <div>
-              <p>
-                <strong>Nome:</strong> {user.name}
-              </p>
               <p>
                 <strong>Email:</strong> {user.email}
               </p>

@@ -86,7 +86,7 @@ const CriarAtividade: React.FC = () => {
           <input type="text" id="nome" name="nome" value={atividade.nome} onChange={handleChange} required />
         </div>
         <div>
-          <label htmlFor="descricao">Descrição:</label>
+          <label htmlFor="descricao">Descrição (insira uma forma de contato):</label>
           <textarea id="descricao" name="descricao" value={atividade.descricao} onChange={handleChange} />
         </div>
         <div>
