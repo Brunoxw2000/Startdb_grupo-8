@@ -80,15 +80,15 @@ function ListaDeAtividades({ filtros }: {
 
     return (
         <div>
-            <h1>Lista de Atividades</h1>
+            <h1>Lista de Conexões</h1>
             <table>
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Tags</th>
+                        <th>Título</th>
+                        <th>Interesse</th>
                         <th>Data</th>
                         <th>Localização</th>
-                        <th>Modo</th>
+                        <th>Encontro</th>
                         <th>Descrição</th>
                     </tr>
                 </thead>

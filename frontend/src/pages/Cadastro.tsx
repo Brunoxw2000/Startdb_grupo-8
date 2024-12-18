@@ -71,7 +71,7 @@ const Cadastro: React.FC = () => {
     return (
         <div className="auth-container">
             <img src={logo} alt="Logo" className=".logo-login" />
-            <h1>Cadastro</h1>
+            <h1>Cadastre-se e comece a conectar!</h1>
             <form onSubmit={handleCadastro} className="auth-form">
                 <input
                     type="text"

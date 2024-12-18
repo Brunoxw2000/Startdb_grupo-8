@@ -1,11 +1,27 @@
 insert into usuarios (
+   id,
    nome,
    email,
    senha,
    endereco,
    papel
-) values ( 'John Doe',
+) values ( 1,
+           'John Doe',
            'john.doe@email.com',
-           'senha123',
-           'Porto Alegre - RS',
+           'senha',
+           'São Pedro',
            'idoso' );
+
+insert into atividades (
+   nome,
+   descricao,
+   localizacao,
+   modo,
+   data,
+   idoso_id
+) values ( 'Passeio no parque',
+           'Passeio no parque com os idosos',
+           'Porto Alegre - RS',
+           'Presencial',
+           '2021-10-10',
+           1 );

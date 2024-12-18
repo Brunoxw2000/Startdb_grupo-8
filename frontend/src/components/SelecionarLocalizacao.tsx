@@ -7,7 +7,7 @@ interface SelecionarLocalizacaoProps {
 
 const SelecionarLocalizacao: React.FC<SelecionarLocalizacaoProps> = ({ onChange, value }) => {
     const localizacoes = [
-        { id: "0", nome: "Sua localização" },
+        { id: "0", nome: "Selecione uma capital" },
         { id: "Aracaju - SE", nome: "Aracaju - SE" },
         { id: "Belém - PA", nome: "Belém - PA" },
         { id: "Belo Horizonte - MG", nome: "Belo Horizonte - MG" },
@@ -39,7 +39,6 @@ const SelecionarLocalizacao: React.FC<SelecionarLocalizacaoProps> = ({ onChange,
     ];
     return (
         <div>
-            <label>Localização</label>
             <select value={value} onChange={onChange}>
                 {localizacoes.map(localizacao => (
                     <option key={localizacao.id} value={localizacao.id}>

@@ -40,10 +40,9 @@ const Atividades: React.FC = () => {
                 <Link to="/User"><img src={icon} className="fas fa-user profile-icon" /></Link> {/* Ícone de perfil (FontAwesome) */}
             </nav>
             <div className="atividades-container">
-                <Button variant="create" type="button" onClick={() => { window.location.href = '/criar'; }} >Criar atividade</Button>
-                <h1>Buscar Atividades</h1>
-                <h2>Filtros</h2>
+                <Button variant="create" type="button" onClick={() => { window.location.href = '/criar'; }} >Criar uma conexão</Button>
                 <form onSubmit={handleAtividades} onReset={handleResetForm}>
+                    <h2>Encontre uma conexão</h2>
                     <div className="filtros-container">
                         <SelecionarTags
                             value={tag}

@@ -65,7 +65,7 @@ const UserPage: React.FC = () => {
         </Button>
       </nav>
       <div className="informacoes-container">
-        <h1>Informações do Usuário</h1>
+        <h1>Seu perfil</h1>
         {user ? (
           isEditing ? (
             <div className="edit-form">
@@ -103,7 +103,7 @@ const UserPage: React.FC = () => {
                 <strong>Localização:</strong> {user.endereco}
               </p>
               <p>
-                <strong>Você é:</strong> {user.papel}
+                <strong>Você:</strong> {user.papel}
               </p>
               <Button type="button" onClick={() => setIsEditing(true)}>
                 Editar Perfil

@@ -49,7 +49,7 @@ const Login: React.FC = () => {
     return (
         <div className="auth-container">
             <img src={logo} alt="Logo" className=".logo-login" />
-            <h1>Login</h1>
+            <h1> Entre e reconecte-se</h1>
             <form onSubmit={handleLogin} className="auth-form"> 
                 <input
                     type="email"

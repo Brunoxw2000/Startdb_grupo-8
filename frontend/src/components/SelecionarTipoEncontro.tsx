@@ -14,7 +14,6 @@ const SelecionarTipoEncontro: React.FC<SelecionarTipoEncontroProps> = ({ onChang
     ];
     return (
         <div>
-            <label>Tipo de encontro</label>
             <select value={value} onChange={onChange}>
                 {encontros.map(encontro => (
                     <option key={encontro.id} value={encontro.id}>
