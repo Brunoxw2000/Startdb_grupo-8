@@ -2,8 +2,7 @@ interface SelecionarTipoUserProps {
     onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     value: string;
 }
-//o tipo de usuário precisa ser para diferenciar idoso e voluntário
-//vamos utilizar no momento?
+
 
 const SelecionarTipoUser: React.FC<SelecionarTipoUserProps> = ({ onChange, value }) => {
     return (

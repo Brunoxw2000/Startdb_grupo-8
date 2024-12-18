@@ -25,7 +25,7 @@ const CriarAtividade: React.FC = () => {
     idosoId: 0,
   });
 
-  const [idosoLogadoId, setIdosoLogadoId] = useState<number | null>(null);
+  // const [idosoLogadoId, setIdosoLogadoId] = useState<number | null>(null);
 
   /*useEffect(() => {
     // Lógica para obter o ID do idoso logado (exemplo com localStorage)

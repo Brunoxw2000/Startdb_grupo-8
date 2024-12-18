@@ -19,6 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import conectageracao.conectageracao.entities.Atividade;
 import conectageracao.conectageracao.entities.Atividade.StatusAtividade;
 import conectageracao.conectageracao.entities.Pessoa;
+
 import conectageracao.conectageracao.repositories.AtividadeRepositorio;
 import conectageracao.conectageracao.repositories.PessoaRepositorio;
 
@@ -41,7 +42,7 @@ public class AtividadeServiceTest {
     }
 
     private Pessoa criarPessoaTeste() {
-        return new Pessoa(1L, "Monchi Yoda", "yoda@gmail.com", "98765", "Dagobah", "Idoso");
+        return new Pessoa("Monchi Yoda", "yoda@gmail.com", "98765", "Dagobah", "Idoso");
 
     }
 

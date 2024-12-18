@@ -9,11 +9,7 @@ import conectageracao.conectageracao.entities.Atividade;
 
 @Repository
 public interface AtividadeRepositorio extends JpaRepository<Atividade, Long> {
-        // Os métodos padrão incluem:
-        // - List<Atividade> findAll();
-        // - Optional<Atividade> findById(Integer id);
-        // - Atividade save(Atividade atividade);
-        // - void deleteById(Integer id);
+        
 
         List<Atividade> findByVoluntarioId(Long voluntarioId);
 
