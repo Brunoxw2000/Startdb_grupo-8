@@ -30,11 +30,11 @@ const Login: React.FC = () => {
         }
 
         try {
-            const response = await api.post<{ userId: string }>("/login", { email, senha });
+            const response = await api.post<string>("/login", { email, senha });
             console.log("Login efetuado com sucesso:", response); 
             console.log("ID do usuário logado:", response.data);
-            localStorage.setItem("userId", response.data.userId);
-            navigate("/user");
+            localStorage.setItem("userId", response.data);
+            navigate("/busca");
 
         } catch (err: any) { 
             console.error("Erro ao fazer login:", err);

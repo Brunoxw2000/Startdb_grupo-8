@@ -3,6 +3,7 @@ package conectageracao.conectageracao.controllers;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,13 +26,13 @@ public class PessoaController {
         return repositorio.findByid(id);
     }
 
-    @PostMapping("{id}")
+    @PutMapping("{id}")
     public Pessoa editarPerfil(@PathVariable Long id, @RequestBody Pessoa pessoaEditada) {
         Pessoa pessoa = repositorio.findByid(pessoaEditada.getId());
         if (pessoa == null) {
             throw new RuntimeException("Usuário não encontrado!");
         }
-
+        
         pessoa.setEndereco(pessoaEditada.getEndereco());
         pessoa.setPapel(pessoaEditada.getPapel());
         return repositorio.save(pessoa);

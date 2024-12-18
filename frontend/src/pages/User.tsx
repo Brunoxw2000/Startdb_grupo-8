@@ -22,7 +22,7 @@ const UserPage: React.FC = () => {
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     if (userId) {
-      api.post<User>(`/pessoas/${parseInt(userId)}`).then((response) => {
+      api.get<User>(`/pessoas/${parseInt(userId)}`).then((response) => {
           setUser(response.data);
           setEndereco(response.data.endereco);
           setPapel(response.data.papel);
@@ -33,7 +33,7 @@ const UserPage: React.FC = () => {
 
   const handleEdit = () => {
     if (user) {
-      api.post<User>(`/pessoas/${user.id}`, {
+      api.put<User>(`/pessoas/${user.id}`, {
         id: user.id,
         endereco,
         papel,
@@ -83,8 +83,8 @@ const UserPage: React.FC = () => {
                   value={papel}
                   onChange={(e) => setPapel(e.target.value)}
                 >
-                  <option value="ajudar">Ajudar</option>
-                  <option value="receber ajuda">Receber ajuda</option>
+                  <option value="voluntario">Ajudar</option>
+                  <option value="idoso">Receber ajuda</option>
                 </select>
               </label>
               <Button type="button" onClick={handleEdit}>
