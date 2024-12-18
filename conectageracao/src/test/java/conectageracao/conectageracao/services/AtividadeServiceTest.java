@@ -41,7 +41,12 @@ public class AtividadeServiceTest {
     }
 
     private Pessoa criarPessoaTeste() {
-        return new Pessoa(1L, "Monchi Yoda", "yoda@gmail.com", "98765", "Dagobah", "Idoso");
+        Pessoa pessoa = new Pessoa();
+        pessoa.setId(1L);
+        pessoa.setNome("Monchi Yoda");
+        pessoa.setEmail("yoda@gmail.com");
+        pessoa.setEndereco("Dagobah");
+        return pessoa;
 
     }
 

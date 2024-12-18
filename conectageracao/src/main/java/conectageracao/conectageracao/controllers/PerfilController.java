@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import conectageracao.conectageracao.entities.Pessoa;
 import conectageracao.conectageracao.repositories.PessoaRepositorio;
 
-
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -19,11 +17,6 @@ public class PerfilController {
 
     public PerfilController(PessoaRepositorio repositorio) {
         this.repositorio = repositorio;
-}
-    
-@PostMapping("/dados")
-
-
     }
 
     @PostMapping("/dados")
@@ -31,7 +24,5 @@ public class PerfilController {
 
         return repositorio.findBynome(nome);
     }
-
-
 
 }
