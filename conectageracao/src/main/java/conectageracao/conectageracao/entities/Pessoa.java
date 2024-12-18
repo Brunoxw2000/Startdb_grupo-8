@@ -46,7 +46,7 @@ public class Pessoa {
         this.email = pessoanova.email();
         this.senha = pessoanova.senha();
         this.papel = pessoanova.endereco();
-       
+        this.endereco= pessoanova.endereco();
     }
 
 

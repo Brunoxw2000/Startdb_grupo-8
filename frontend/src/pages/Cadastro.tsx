@@ -9,6 +9,11 @@ import Button from "../components/Button";
 const Cadastro: React.FC = () => {
     const navigate = useNavigate();
 
+
+    
+
+
+
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -17,8 +22,8 @@ const Cadastro: React.FC = () => {
     const [emailError, setEmailError] = useState("");
     const [senhaError, setSenhaError] = useState("");
 
-    const [tipoUsuario, setTipoUsuario] = useState("");
-    const [localizacao, setLocalizacao] = useState("");
+    const [papel, setTipoUsuario] = useState("");
+    const [endereco, setLocalizacao] = useState("");
 
 
 
@@ -56,8 +61,8 @@ const Cadastro: React.FC = () => {
                 nome,
                 email,
                 senha,
-                tipoUsuario,
-                localizacao,
+                endereco,
+                papel,
             };
 
             await api.post("/cadastro/formulario", novoUsuario);
@@ -87,11 +92,11 @@ const Cadastro: React.FC = () => {
                 />
                 {emailError && <p style={{ color: 'red' }}>{emailError}</p>} {/* Exibe a mensagem de erro do email se existir */}
                 <SelecionarTipoUser
-                    value={tipoUsuario}
+                    value={papel}
                     onChange={event => setTipoUsuario(event.target.value)}
                 />
                 <SelecionarLocalizacao
-                    value={localizacao}
+                    value={endereco}
                     onChange={event => setLocalizacao(event.target.value)}
                 />
                 <input
