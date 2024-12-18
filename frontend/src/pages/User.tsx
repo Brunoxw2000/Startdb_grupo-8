@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 import Button from "../components/Button";
 import "./User.css";
 import { Link } from "react-router-dom";
@@ -22,11 +22,7 @@ const UserPage: React.FC = () => {
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     if (userId) {
-      axios
-        .post<User>("http://localhost:8080/perfil/dados", { id: userId }, {
-          headers: { "Content-Type": "application/json" },
-        })
-        .then((response) => {
+      api.post<User>(`/pessoas/${parseInt(userId)}`).then((response) => {
           setUser(response.data);
           setEndereco(response.data.endereco);
           setPapel(response.data.papel);
@@ -37,12 +33,11 @@ const UserPage: React.FC = () => {
 
   const handleEdit = () => {
     if (user) {
-      axios
-        .post<User>("http://localhost:8080/perfil/editar", {
-          id: user.id,
-          endereco,
-          papel,
-        })
+      api.post<User>(`/pessoas/${user.id}`, {
+        id: user.id,
+        endereco,
+        papel,
+      })
         .then((response) => {
           setUser(response.data);
           setIsEditing(false);
