@@ -30,15 +30,6 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(Long id, String nome, String email, String senha, String endereco, String papel) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.endereco = endereco;
-        this.papel = papel;
-    }
-
     public Pessoa(PessoaRequestDTO pessoaNova) {
         this.nome = pessoaNova.nome();
         this.email = pessoaNova.email();
