@@ -19,6 +19,10 @@ public class PerfilController {
 
     public PerfilController(PessoaRepositorio repositorio) {
         this.repositorio = repositorio;
+}
+    
+@PostMapping("/dados")
+
 
     }
 
@@ -27,5 +31,7 @@ public class PerfilController {
 
         return repositorio.findBynome(nome);
     }
+
+
 
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 interface SelecionarLocalizacaoProps {
     onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;

@@ -24,7 +24,6 @@ public class CadastroController {
     public void postMethodName(@RequestBody PessoaRequestDTO pessoaNova) {
 
         repositorio.save(new Pessoa((pessoaNova)));
-
     }
 
 }

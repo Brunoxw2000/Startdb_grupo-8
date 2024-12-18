@@ -5,14 +5,11 @@ import { useState } from "react";
 import SelecionarTipoUser from "../components/SelecionarTipoUser";
 import SelecionarLocalizacao from "../components/SelecionarLocalizacao";
 import Button from "../components/Button";
+import logo from "../assets/logo.png"
+import './Auth.css';
 
 const Cadastro: React.FC = () => {
     const navigate = useNavigate();
-
-
-    
-
-
 
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
@@ -22,8 +19,8 @@ const Cadastro: React.FC = () => {
     const [emailError, setEmailError] = useState("");
     const [senhaError, setSenhaError] = useState("");
 
-    const [papel, setTipoUsuario] = useState("");
-    const [endereco, setLocalizacao] = useState("");
+    const [tipoUsuario, setTipoUsuario] = useState("");
+    const [localizacao, setLocalizacao] = useState("");
 
 
 
@@ -61,20 +58,21 @@ const Cadastro: React.FC = () => {
                 nome,
                 email,
                 senha,
-                endereco,
-                papel,
+                papel: tipoUsuario,
+                endereco: localizacao,
             };
 
             await api.post("/cadastro/formulario", novoUsuario);
             navigate("/login");
         } catch (error) {
-            console.error(error); 
+            console.error(error);
         }
     };
     return (
-        <div>
+        <div className="auth-container">
+            <img src={logo} alt="Logo" className=".logo-login" />
             <h1>Cadastro</h1>
-            <form onSubmit={handleCadastro}>
+            <form onSubmit={handleCadastro} className="auth-form">
                 <input
                     type="text"
                     placeholder="Nome"
@@ -92,11 +90,11 @@ const Cadastro: React.FC = () => {
                 />
                 {emailError && <p style={{ color: 'red' }}>{emailError}</p>} {/* Exibe a mensagem de erro do email se existir */}
                 <SelecionarTipoUser
-                    value={papel}
+                    value={tipoUsuario}
                     onChange={event => setTipoUsuario(event.target.value)}
                 />
                 <SelecionarLocalizacao
-                    value={endereco}
+                    value={localizacao}
                     onChange={event => setLocalizacao(event.target.value)}
                 />
                 <input
