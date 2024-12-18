@@ -5,7 +5,7 @@ interface SelecionarTagsProps {
 
 const SelecionarTags: React.FC<SelecionarTagsProps> = ({ onChange, value }) => {
     const Tags = [
-        { id: "", tag: "Selecione" },
+        { id: "", tag: "Selecione um interesse" },
         { id: "passeio", tag: "Passeio" },
         { id: "exercício", tag: "Exercício" },
         { id: "animais", tag: "Animais" },
@@ -15,7 +15,6 @@ const SelecionarTags: React.FC<SelecionarTagsProps> = ({ onChange, value }) => {
     ];
     return (
         <div>
-            <label>Tags</label>
             <select value={value} onChange={onChange}>
                 {Tags.map(tag => (
                     <option key={tag.id} value={tag.id}>

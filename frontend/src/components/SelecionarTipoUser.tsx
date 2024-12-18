@@ -9,8 +9,8 @@ const SelecionarTipoUser: React.FC<SelecionarTipoUserProps> = ({ onChange, value
         <div>
             <select value={value} onChange={onChange}>
                 <option value="">Selecione uma das opções</option>
-                <option value="voluntario">Quero ajudar</option>
-                <option value="idoso">Quero receber ajuda</option>
+                <option value="Gostaria de ajudar">Gostaria de ajudar</option>
+                <option value="Gostaria de receber ajuda">Gostaria de receber ajuda</option>
             </select>
         </div>
     );

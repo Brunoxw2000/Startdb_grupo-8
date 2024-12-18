@@ -80,16 +80,15 @@ function ListaDeAtividades({ filtros }: {
 
     return (
         <div>
-            <h1>Lista de Atividades</h1>
+            <h1>Lista de Conexões</h1>
             <table>
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Idoso</th>
-                        <th>Tags</th>
+                        <th>Título</th>
+                        <th>Interesse</th>
                         <th>Data</th>
                         <th>Localização</th>
-                        <th>Modo</th>
+                        <th>Encontro</th>
                         <th>Descrição</th>
                     </tr>
                 </thead>
@@ -97,7 +96,6 @@ function ListaDeAtividades({ filtros }: {
                     {atividades.map((atividade, index) => (
                         <tr key={index}>
                             <td>{atividade.nome}</td>
-                            <td>{atividade.idoso?.nome}</td>
                             <td>{atividade.tags?.join(", ")}</td>
                             <td>{atividade.data}</td>
                             <td>{atividade.localizacao}</td>

@@ -79,30 +79,30 @@ const CriarAtividade: React.FC = () => {
 
   return (
     <div>
-      <h1>Criar Atividade</h1>
+      <h1>Criar Conexão</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="nome">Nome:</label>
+          <label htmlFor="nome">Título para a conexão:</label>
           <input type="text" id="nome" name="nome" value={atividade.nome} onChange={handleChange} required />
         </div>
         <div>
-          <label htmlFor="descricao">Descrição:</label>
+          <label htmlFor="descric  ao">Descrição (insira uma forma de contato):</label>
           <textarea id="descricao" name="descricao" value={atividade.descricao} onChange={handleChange} />
         </div>
         <div>
-          <label htmlFor="tags">Tags (separadas por vírgula):</label>
+          <label htmlFor="tags">Interesses (separados por vírgula):</label>
           <input type="text" id="tags" name="tags" value={atividade.tags.join(', ')} onChange={handleTagChange} />
         </div>
         <div>
-          <label htmlFor="localizacao">Localização:</label>
+          <label htmlFor="localizacao">Localização da conexão:</label>
           <input type="text" id="localizacao" name="localizacao" value={atividade.localizacao} onChange={handleChange} required />
         </div>
         <div>
-          <label htmlFor="modo">Modo:</label>
+          <label htmlFor="modo">Tipo de encontro:</label>
           <input type="text" id="modo" name="modo" value={atividade.modo} onChange={handleChange} required />
         </div>
         <div>
-          <label htmlFor="data">Data:</label>
+          <label htmlFor="data">Data da conexão:</label>
           <input type="date" id="data" name="data" value={atividade.data} onChange={handleChange} />
         </div>
 
