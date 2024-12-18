@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import conectageracao.conectageracao.entities.Pessoa;
 import conectageracao.conectageracao.repositories.PessoaRepositorio;
 
-import java.util.Optional;
+
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ public class PerfilController {
     }
 
     @PostMapping("/dados")
-    public Optional<Pessoa> postMethodName(@RequestBody String nome) {
+    public Pessoa postMethodName(@RequestBody String nome) {
 
         return repositorio.findBynome(nome);
     }
