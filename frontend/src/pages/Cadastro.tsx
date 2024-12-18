@@ -5,6 +5,8 @@ import { useState } from "react";
 import SelecionarTipoUser from "../components/SelecionarTipoUser";
 import SelecionarLocalizacao from "../components/SelecionarLocalizacao";
 import Button from "../components/Button";
+import logo from "../assets/logo.png"
+import './Auth.css';
 
 const Cadastro: React.FC = () => {
     const navigate = useNavigate();
@@ -56,20 +58,21 @@ const Cadastro: React.FC = () => {
                 nome,
                 email,
                 senha,
-                tipoUsuario,
-                localizacao,
+                papel: tipoUsuario,
+                endereco: localizacao,
             };
 
             await api.post("/cadastro/formulario", novoUsuario);
             navigate("/login");
         } catch (error) {
-            console.error(error); 
+            console.error(error);
         }
     };
     return (
-        <div>
+        <div className="auth-container">
+            <img src={logo} alt="Logo" className=".logo-login" />
             <h1>Cadastro</h1>
-            <form onSubmit={handleCadastro}>
+            <form onSubmit={handleCadastro} className="auth-form">
                 <input
                     type="text"
                     placeholder="Nome"

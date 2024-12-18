@@ -18,7 +18,7 @@ public class Pessoa {
     private Long id;
     @Column(nullable = false)
     private String nome;
-    @Column(name="EMAIL", length = 30,nullable = false)
+    @Column(name = "EMAIL", length = 30, nullable = false)
     private String email;
     @Column(length = 30, nullable = false)
     private String senha;
@@ -39,16 +39,14 @@ public class Pessoa {
         this.papel = papel;
     }
 
+    public Pessoa(PessoaRequestDTO pessoaNova) {
+        this.nome = pessoaNova.nome();
+        this.email = pessoaNova.email();
+        this.senha = pessoaNova.senha();
+        this.endereco = pessoaNova.endereco();
+        this.papel = pessoaNova.papel();
 
-
-    public Pessoa(PessoaRequestDTO pessoanova){
-        this.nome = pessoanova.nome();
-        this.email = pessoanova.email();
-        this.senha = pessoanova.senha();
-        this.papel = pessoanova.endereco();
-       
     }
-
 
     public Long getId() {
         return id;

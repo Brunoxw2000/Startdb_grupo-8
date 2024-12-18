@@ -19,13 +19,12 @@ public class PerfilController {
 
     public PerfilController(PessoaRepositorio repositorio) {
         this.repositorio = repositorio;
+}
+    
+@PostMapping("/dados")
 
-    }
-
-    @PostMapping("/dados")
-    public Optional<Pessoa> postMethodName(@RequestBody String nome) {
-
-        return repositorio.findBynome(nome);
-    }
+public Optional<Pessoa> postMethodName(@RequestBody String nome) {
+    return repositorio.findBynome(nome);
+}
 
 }

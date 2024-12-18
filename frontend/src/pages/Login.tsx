@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
+import "./Auth.css";
+import logo from "../assets/logo.png"
 
 //definição do componente Login
 const Login: React.FC = () => {
@@ -56,9 +58,10 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div>
+        <div className="auth-container">
+            <img src={logo} alt="Logo" className=".logo-login"/>
             <h1>Login</h1>
-            <form onSubmit={handleLogin}> {/* Formulário de login que chama handleLogin ao ser submetido. */}
+            <form onSubmit={handleLogin} className="auth-form"> {/* Formulário de login que chama handleLogin ao ser submetido. */}
                 <input
                     type="email"
                     placeholder="E-mail"
