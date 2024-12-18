@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 type User = {
+  id: number;
   name: string;
   email: string;
   endereco: string;
@@ -14,39 +15,117 @@ type User = {
 
 const UserPage: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [endereco, setEndereco] = useState("");
+  const [papel, setPapel] = useState("");
 
   useEffect(() => {
-    axios.get<User>("http://localhost:8080/usuarios")
-      .then(response => {
-        setUser(response.data);
-      })
-      .catch(error => {
-        console.error("Erro ao buscar o usuário", error);
-      });
+    const userId = localStorage.getItem("userId");
+    if (userId) {
+      axios
+        .post<User>("http://localhost:8080/perfil/dados", { id: userId }, {
+          headers: { "Content-Type": "application/json" },
+        })
+        .then((response) => {
+          setUser(response.data);
+          setEndereco(response.data.endereco);
+          setPapel(response.data.papel);
+        })
+        .catch((error) => console.error("Erro ao buscar o usuário", error));
+    }
   }, []);
+
+  const handleEdit = () => {
+    if (user) {
+      axios
+        .post<User>("http://localhost:8080/perfil/editar", {
+          id: user.id,
+          endereco,
+          papel,
+        })
+        .then((response) => {
+          setUser(response.data);
+          setIsEditing(false);
+        })
+        .catch((error) => console.error("Erro ao editar perfil", error));
+    }
+  };
+
 
   return (
     <div className="page-container">
       <nav className="navbar">
-        <Link to="/"><img src={logo} alt="Logo" className="logo" /></Link>
-        <Button variant= "reset" type="button" onClick={() => { window.location.href = '/login'; }}>Sair</Button>
+        <Link to="/">
+          <img src={logo} alt="Logo" className="logo" />
+        </Link>
+        <Button
+          variant="reset"
+          type="button"
+          onClick={() => {
+            localStorage.removeItem("userId");
+            window.location.href = "/login";
+          }}
+        >
+          Sair
+        </Button>
       </nav>
       <div className="informacoes-container">
         <h1>Informações do Usuário</h1>
         {user ? (
-          <div>
-            <p><strong>Nome:</strong> {user.name}</p>
-            <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>Localização:</strong> {user.endereco}</p>
-            <p><strong>Você é:</strong> {user.papel}</p>
-            <p><a href="/busca">Voltar</a></p>
-          </div>
+          isEditing ? (
+            <div className="edit-form">
+              <label>
+                Localização:
+                <input
+                  type="text"
+                  value={endereco}
+                  onChange={(e) => setEndereco(e.target.value)}
+                />
+              </label>
+              <label>
+                Papel:
+                <select
+                  value={papel}
+                  onChange={(e) => setPapel(e.target.value)}
+                >
+                  <option value="ajudar">Ajudar</option>
+                  <option value="receber ajuda">Receber ajuda</option>
+                </select>
+              </label>
+              <Button type="button" onClick={handleEdit}>
+                Salvar
+              </Button>
+              <Button type="button" onClick={() => setIsEditing(false)}>
+                Cancelar
+              </Button>
+            </div>
+          ) : (
+            <div>
+              <p>
+                <strong>Nome:</strong> {user.name}
+              </p>
+              <p>
+                <strong>Email:</strong> {user.email}
+              </p>
+              <p>
+                <strong>Localização:</strong> {user.endereco}
+              </p>
+              <p>
+                <strong>Você é:</strong> {user.papel}
+              </p>
+              <Button type="button" onClick={() => setIsEditing(true)}>
+                Editar Perfil
+              </Button>
+              <p>
+                <a href="/busca">Voltar</a>
+              </p>
+            </div>
+          )
         ) : (
           <p>Carregando informações do usuário...</p>
         )}
       </div>
     </div>
   );
-};
-
+}
 export default UserPage;
