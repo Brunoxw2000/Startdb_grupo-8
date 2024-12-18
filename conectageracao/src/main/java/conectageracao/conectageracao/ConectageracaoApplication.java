@@ -16,7 +16,7 @@ import conectageracao.conectageracao.repositories.AtividadeRepositorio;
 import conectageracao.conectageracao.repositories.PessoaRepositorio;
 
 @SpringBootApplication
-public class ConectageracaoApplication implements CommandLineRunner {
+public class ConectageracaoApplication  {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ConectageracaoApplication.class, args);
@@ -34,10 +34,12 @@ public class ConectageracaoApplication implements CommandLineRunner {
 			
 		};
 	}
-
+}
+	/*
 	@Override
 	public void run(String... args) throws Exception {
-		PessoaRequestDTO pessoaNova = new PessoaRequestDTO( "John Doe","john.doe@email.com","senha123","Porto Alegre - RS","idoso" );
+
+	 	PessoaRequestDTO pessoaNova = new PessoaRequestDTO( "John Doe","john.doe@email.com","senha123","Porto Alegre - RS","idoso" );
 		repositorio.save(new Pessoa((pessoaNova)));
 		PessoaRequestDTO pessoaNova2 = new PessoaRequestDTO( "bruno","bwx@jumail.com","1278","Porto Alegre - RS","jovem" );
 		repositorio.save(new Pessoa((pessoaNova2)));
@@ -115,7 +117,7 @@ repositorio.save(new Pessoa(pessoaNova9));
 
 	}
 }
-
+*/
 
 /* Atividade atividadeinicial =  new Atividade("Acompanhar em consulta médica",
                 "Gostaria de uma acompanhante para a minha consulta ao ortopedista",
