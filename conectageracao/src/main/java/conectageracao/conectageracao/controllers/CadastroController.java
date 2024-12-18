@@ -23,8 +23,7 @@ public class CadastroController {
     @PostMapping("/formulario")
     public void postMethodName(@RequestBody PessoaRequestDTO pessoaNova) {
 
-        repositorio.save(new Pessoa(null, pessoaNova.nome(), pessoaNova.email(), pessoaNova.senha(), pessoaNova.endereco(),
-                pessoaNova.papel()));
+        repositorio.save(new Pessoa((pessoaNova)));
 
     }
 
