@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../services/api';
 
 interface Atividade {
   nome: string;
@@ -42,12 +42,12 @@ const CriarAtividade: React.FC = () => {
     }
 
   }, [navigate]); */
-//atualiza o estado da atividade
+  //atualiza o estado da atividade
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
     setAtividade({ ...atividade, [name]: value });
   };
-//tratamento das tags(converter em array de strings)
+  //tratamento das tags(converter em array de strings)
   const handleTagChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     const tagsArray = value.split(',').map(tag => tag.trim());
@@ -55,28 +55,27 @@ const CriarAtividade: React.FC = () => {
   };
 
 
-//envia a atividade para o backend e converte a data
+  //envia a atividade para o backend e converte a data
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-
-      const response = await axios.post('/atividades', { 
+      const response = await api.post('/atividades', {
         ...atividade,
-        data: atividade.data ? new Date(atividade.data) : null 
+        data: atividade.data ? new Date(atividade.data) : null
       });
 
 
       console.log('Atividade criada:', response.data);
 
-      navigate('/busca');
+    navigate('/busca');
     } catch (error) {
       console.error('Erro ao criar atividade:', error);
     }
-  }; 
+  };
 
- // if (!idosoLogadoId) {
+  // if (!idosoLogadoId) {
   //  return <div>Carregando...</div>;
- // }
+  // }
 
   return (
     <div>

@@ -8,43 +8,46 @@ interface SelecionarLocalizacaoProps {
 const SelecionarLocalizacao: React.FC<SelecionarLocalizacaoProps> = ({ onChange, value }) => {
     const localizacoes = [
         { id: "0", nome: "Sua localização" },
-        { id: "1", nome: "Aracaju - SE" },
-        { id: "2", nome: "Belém - PA" },
-        { id: "3", nome: "Belo Horizonte - MG" },
-        { id: "4", nome: "Boa Vista - RR" },
-        { id: "5", nome: "Brasília - DF" },
-        { id: "6", nome: "Campo Grande - MS" },
-        { id: "7", nome: "Cuiabá - MT" },
-        { id: "8", nome: "Curitiba - PR" },
-        { id: "9", nome: "Florianópolis - SC" },
-        { id: "10", nome: "Fortaleza - CE" },
-        { id: "11", nome: "Goiânia - GO" },
-        { id: "12", nome: "João Pessoa - PB" },
-        { id: "13", nome: "Macapá - AP" },
-        { id: "14", nome: "Maceió - AL" },
-        { id: "15", nome: "Manaus - AM" },
-        { id: "16", nome: "Natal - RN" },
-        { id: "17", nome: "Palmas - TO" },
-        { id: "18", nome: "Porto Alegre - RS" },
-        { id: "19", nome: "Porto Velho - RO" },
-        { id: "20", nome: "Recife - PE" },
-        { id: "21", nome: "Rio Branco - AC" },
-        { id: "22", nome: "Rio de Janeiro - RJ" },
-        { id: "23", nome: "Salvador - BA" },
-        { id: "24", nome: "São Luís - MA" },
-        { id: "25", nome: "São Paulo - SP" },
-        { id: "26", nome: "Teresina - PI" },
-        { id: "27", nome: "Vitória - ES" },
+        { id: "Aracaju - SE", nome: "Aracaju - SE" },
+        { id: "Belém - PA", nome: "Belém - PA" },
+        { id: "Belo Horizonte - MG", nome: "Belo Horizonte - MG" },
+        { id: "Boa Vista - RR", nome: "Boa Vista - RR" },
+        { id: "Brasília - DF", nome: "Brasília - DF" },
+        { id: "Campo Grande - MS", nome: "Campo Grande - MS" },
+        { id: "Cuiabá - MT", nome: "Cuiabá - MT" },
+        { id: "Curitiba - PR", nome: "Curitiba - PR" },
+        { id: "Florianópolis - SC", nome: "Florianópolis - SC" },
+        { id: "Fortaleza - CE", nome: "Fortaleza - CE" },
+        { id: "Goiânia - GO", nome: "Goiânia - GO" },
+        { id: "João Pessoa - PB", nome: "João Pessoa - PB" },
+        { id: "Macapá - AP", nome: "Macapá - AP" },
+        { id: "Maceió - AL", nome: "Maceió - AL" },
+        { id: "Manaus - AM", nome: "Manaus - AM" },
+        { id: "Natal - RN", nome: "Natal - RN" },
+        { id: "Palmas - TO", nome: "Palmas - TO" },
+        { id: "Porto Alegre - RS", nome: "Porto Alegre - RS" },
+        { id: "Porto Velho - RO", nome: "Porto Velho - RO" },
+        { id: "Recife - PE", nome: "Recife - PE" },
+        { id: "Rio Branco - AC", nome: "Rio Branco - AC" },
+        { id: "Rio de Janeiro - RJ", nome: "Rio de Janeiro - RJ" },
+        { id: "Salvador - BA", nome: "Salvador - BA" },
+        { id: "São Luís - MA", nome: "São Luís - MA" },
+        { id: "São Paulo - SP", nome: "São Paulo - SP" },
+        { id: "Teresina - PI", nome: "Teresina - PI" },
+        { id: "Vitória - ES", nome: "Vitória - ES" },
         { id: "28", nome: "------------" }
     ];
     return (
-        <select value={value} onChange={onChange}>
-            {localizacoes.map(localizacao => (
-                <option key={localizacao.id} value={localizacao.id}>
-                    {localizacao.nome}
-                </option>
-            ))}
-        </select>
+        <div>
+            <label>Localização</label>
+            <select value={value} onChange={onChange}>
+                {localizacoes.map(localizacao => (
+                    <option key={localizacao.id} value={localizacao.id}>
+                        {localizacao.nome}
+                    </option>
+                ))}
+            </select>
+        </div>
     );
 };
 
