@@ -1,4 +1,4 @@
-# StartDB Grupo 08 - Conecta Geração
+# StartDB Grupo 08 - Conecta Gerações
 > Gabriela de Castro Laurindo
 
 > Bruno Wendelstein Xavier
