@@ -11,7 +11,8 @@ const SelecionarTags: React.FC<SelecionarTagsProps> = ({ onChange, value }) => {
         { id: "animais", tag: "Animais" },
         { id: "cozinha", tag: "Cozinha" },
         { id: "afazeres", tag: "Afazeres" },
-        { id: "conversa", tag: "Conversa" }
+        { id: "conversa", tag: "Conversa" },
+        { id: "tecnologia", tag: "Tecnologia" },
     ];
     return (
         <div>

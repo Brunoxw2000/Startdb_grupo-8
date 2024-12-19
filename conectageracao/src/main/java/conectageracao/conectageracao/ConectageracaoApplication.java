@@ -22,8 +22,8 @@ public class ConectageracaoApplication  {
 		SpringApplication.run(ConectageracaoApplication.class, args);
 	}
 
-	@Autowired
-	private PessoaRepositorio repositorio;
+//	@Autowired
+//	private PessoaRepositorio repositorio;
 
 	//@Autowired
 	//private AtividadeRepositorio atividades;

@@ -12,6 +12,53 @@ insert into usuarios (
            'São Pedro',
            'idoso' );
 
+insert into usuarios (
+   id,
+   nome,
+   email,
+   senha,
+   endereco,
+   papel
+) values ( 1,
+           'John Doe',
+           'john.doe@email.com',
+           'senha',
+           'São Pedro',
+           'idoso' );
+
+
+insert into usuarios (
+   id,
+   nome,
+   email,
+   senha,
+   endereco,
+   papel
+) values ( 1,
+           'John Doe',
+           'john.doe@email.com',
+           'senha',
+           'São Pedro',
+           'idoso' );
+
+insert into usuarios (
+   id,
+   nome,
+   email,
+   senha,
+   endereco,
+   papel
+) values ( 1,
+           'John Doe',
+           'john.doe@email.com',
+           'senha',
+           'São Pedro',
+           'idoso' );
+
+
+
+
+
 insert into atividades (
    nome,
    descricao,
